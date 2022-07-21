@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  nbviewer:
+    # See Dockerfile
+    container_name: nbviewer
+    image: jupyter/nbviewer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #volumes:
+    #  - ./nbviewer_config.py:/srv/nbviewer_config.py
+    #  #- ./jupyterhub_config.py:/srv/jupyterhub_config.py
+    ports:
+      - ${IP}:9000:8080 # change ip if required
+    restart: always
